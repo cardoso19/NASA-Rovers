@@ -1,0 +1,9 @@
+os: osx
+osx_image: xcode10.2
+language: swift
+xcode_project: NASA\ Probes.xcworkspace
+xcode_scheme: NASA\ Probes
+podfile: Podfile
+xcode_sdk: iphonesimulator12.2
+
+bundle exec pod install
