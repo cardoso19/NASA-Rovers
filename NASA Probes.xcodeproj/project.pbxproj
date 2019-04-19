@@ -118,14 +118,13 @@
 		AFB6F14B226A128400312A51 /* NASA Probes */ = {
 			isa = PBXGroup;
 			children = (
+				AFEC52F7226A2EE800B1BEBA /* Views */,
 				AFEC52EE226A223400B1BEBA /* Services */,
 				AFEC52E9226A1D9D00B1BEBA /* Util */,
 				AFEC52E0226A17A600B1BEBA /* Models */,
 				AFB6F14C226A128400312A51 /* AppDelegate.swift */,
 				AFB6F14E226A128400312A51 /* ViewController.swift */,
-				AFB6F150226A128400312A51 /* Main.storyboard */,
 				AFB6F153226A128500312A51 /* Assets.xcassets */,
-				AFB6F155226A128500312A51 /* LaunchScreen.storyboard */,
 				AFB6F158226A128500312A51 /* Info.plist */,
 			);
 			path = "NASA Probes";
@@ -169,6 +168,15 @@
 			children = (
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		AFEC52F7226A2EE800B1BEBA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				AFB6F150226A128400312A51 /* Main.storyboard */,
+				AFB6F155226A128500312A51 /* LaunchScreen.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E207A91DE01AB7C8B65B3A3B /* Pods */ = {
