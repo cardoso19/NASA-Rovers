@@ -9,6 +9,18 @@
 /* Begin PBXBuildFile section */
 		0A62E3E336EC16A93A6E40CD /* Pods_NASA_Probes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB19E51F24C13798A818CBA /* Pods_NASA_Probes.framework */; };
 		6861345F57D29B0B086E1FDD /* Pods_NASA_ProbesTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 14613EF53629CA5889C5F8C2 /* Pods_NASA_ProbesTests.framework */; };
+		AF62AEED226A41AE0084744E /* PhotoDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AEEC226A41AE0084744E /* PhotoDetailInteractor.swift */; };
+		AF62AEEF226A41CE0084744E /* PhotoDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AEEE226A41CE0084744E /* PhotoDetailPresenter.swift */; };
+		AF62AEF1226A41E20084744E /* PhotoDetailModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AEF0226A41E20084744E /* PhotoDetailModels.swift */; };
+		AF62AEF3226A42030084744E /* PhotoDetailWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AEF2226A42030084744E /* PhotoDetailWorker.swift */; };
+		AF62AEF5226A42130084744E /* PhotoDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AEF4226A42130084744E /* PhotoDetailRouter.swift */; };
+		AF62AEF9226A426E0084744E /* PhotoDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AEF8226A426E0084744E /* PhotoDetailViewController.swift */; };
+		AF62AEFB226A42C40084744E /* RoverPhotosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AEFA226A42C40084744E /* RoverPhotosViewController.swift */; };
+		AF62AEFD226A42CF0084744E /* RoverPhotosInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AEFC226A42CF0084744E /* RoverPhotosInteractor.swift */; };
+		AF62AF00226A42E20084744E /* RoverPhotosPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AEFF226A42E20084744E /* RoverPhotosPresenter.swift */; };
+		AF62AF02226A42EE0084744E /* RoverPhotosModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AF01226A42EE0084744E /* RoverPhotosModels.swift */; };
+		AF62AF04226A42F90084744E /* RoverPhotosWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AF03226A42F90084744E /* RoverPhotosWorker.swift */; };
+		AF62AF06226A43030084744E /* RoverPhotosRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF62AF05226A43030084744E /* RoverPhotosRouter.swift */; };
 		AFB6F14D226A128400312A51 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6F14C226A128400312A51 /* AppDelegate.swift */; };
 		AFB6F14F226A128400312A51 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6F14E226A128400312A51 /* ViewController.swift */; };
 		AFB6F152226A128400312A51 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB6F150226A128400312A51 /* Main.storyboard */; };
@@ -43,6 +55,18 @@
 		3AB0151378B63C422042E94B /* Pods-NASA ProbesTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA ProbesTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NASA ProbesTests/Pods-NASA ProbesTests.debug.xcconfig"; sourceTree = "<group>"; };
 		4C34F780D101490FE48991F6 /* Pods-NASA ProbesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA ProbesTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NASA ProbesTests/Pods-NASA ProbesTests.release.xcconfig"; sourceTree = "<group>"; };
 		5321FB5B58BD0DF9B188E029 /* Pods-NASA Probes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NASA Probes.release.xcconfig"; path = "Pods/Target Support Files/Pods-NASA Probes/Pods-NASA Probes.release.xcconfig"; sourceTree = "<group>"; };
+		AF62AEEC226A41AE0084744E /* PhotoDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailInteractor.swift; sourceTree = "<group>"; };
+		AF62AEEE226A41CE0084744E /* PhotoDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailPresenter.swift; sourceTree = "<group>"; };
+		AF62AEF0226A41E20084744E /* PhotoDetailModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailModels.swift; sourceTree = "<group>"; };
+		AF62AEF2226A42030084744E /* PhotoDetailWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailWorker.swift; sourceTree = "<group>"; };
+		AF62AEF4226A42130084744E /* PhotoDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailRouter.swift; sourceTree = "<group>"; };
+		AF62AEF8226A426E0084744E /* PhotoDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailViewController.swift; sourceTree = "<group>"; };
+		AF62AEFA226A42C40084744E /* RoverPhotosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPhotosViewController.swift; sourceTree = "<group>"; };
+		AF62AEFC226A42CF0084744E /* RoverPhotosInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPhotosInteractor.swift; sourceTree = "<group>"; };
+		AF62AEFF226A42E20084744E /* RoverPhotosPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPhotosPresenter.swift; sourceTree = "<group>"; };
+		AF62AF01226A42EE0084744E /* RoverPhotosModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPhotosModels.swift; sourceTree = "<group>"; };
+		AF62AF03226A42F90084744E /* RoverPhotosWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPhotosWorker.swift; sourceTree = "<group>"; };
+		AF62AF05226A43030084744E /* RoverPhotosRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverPhotosRouter.swift; sourceTree = "<group>"; };
 		AFB6F149226A128400312A51 /* NASA Probes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NASA Probes.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFB6F14C226A128400312A51 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AFB6F14E226A128400312A51 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +119,41 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		AF62AEE5226A33D80084744E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				AF62AEEB226A3F9C0084744E /* PhotoDetail */,
+				AF62AEEA226A3F920084744E /* RoverPhotos */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		AF62AEEA226A3F920084744E /* RoverPhotos */ = {
+			isa = PBXGroup;
+			children = (
+				AF62AEFC226A42CF0084744E /* RoverPhotosInteractor.swift */,
+				AF62AF01226A42EE0084744E /* RoverPhotosModels.swift */,
+				AF62AEFF226A42E20084744E /* RoverPhotosPresenter.swift */,
+				AF62AF05226A43030084744E /* RoverPhotosRouter.swift */,
+				AF62AEFA226A42C40084744E /* RoverPhotosViewController.swift */,
+				AF62AF03226A42F90084744E /* RoverPhotosWorker.swift */,
+			);
+			path = RoverPhotos;
+			sourceTree = "<group>";
+		};
+		AF62AEEB226A3F9C0084744E /* PhotoDetail */ = {
+			isa = PBXGroup;
+			children = (
+				AF62AEEC226A41AE0084744E /* PhotoDetailInteractor.swift */,
+				AF62AEF0226A41E20084744E /* PhotoDetailModels.swift */,
+				AF62AEEE226A41CE0084744E /* PhotoDetailPresenter.swift */,
+				AF62AEF4226A42130084744E /* PhotoDetailRouter.swift */,
+				AF62AEF8226A426E0084744E /* PhotoDetailViewController.swift */,
+				AF62AEF2226A42030084744E /* PhotoDetailWorker.swift */,
+			);
+			path = PhotoDetail;
+			sourceTree = "<group>";
+		};
 		AFB6F140226A128400312A51 = {
 			isa = PBXGroup;
 			children = (
@@ -118,14 +177,15 @@
 		AFB6F14B226A128400312A51 /* NASA Probes */ = {
 			isa = PBXGroup;
 			children = (
-				AFEC52F7226A2EE800B1BEBA /* Views */,
-				AFEC52EE226A223400B1BEBA /* Services */,
-				AFEC52E9226A1D9D00B1BEBA /* Util */,
-				AFEC52E0226A17A600B1BEBA /* Models */,
+				AFB6F158226A128500312A51 /* Info.plist */,
 				AFB6F14C226A128400312A51 /* AppDelegate.swift */,
 				AFB6F14E226A128400312A51 /* ViewController.swift */,
 				AFB6F153226A128500312A51 /* Assets.xcassets */,
-				AFB6F158226A128500312A51 /* Info.plist */,
+				AFEC52E0226A17A600B1BEBA /* Models */,
+				AF62AEE5226A33D80084744E /* Scenes */,
+				AFEC52EE226A223400B1BEBA /* Services */,
+				AFEC52E9226A1D9D00B1BEBA /* Util */,
+				AFEC52F7226A2EE800B1BEBA /* Views */,
 			);
 			path = "NASA Probes";
 			sourceTree = "<group>";
@@ -352,17 +412,29 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFEC52F6226A2ADB00B1BEBA /* Photos.swift in Sources */,
+				AF62AEF9226A426E0084744E /* PhotoDetailViewController.swift in Sources */,
 				AFEC52E6226A19BC00B1BEBA /* Rover.swift in Sources */,
 				AFEC52F2226A246E00B1BEBA /* ErrorString.swift in Sources */,
 				AFEC52E4226A18B500B1BEBA /* Camera.swift in Sources */,
 				AFEC52EB226A1DD900B1BEBA /* StringUtil.swift in Sources */,
+				AF62AEED226A41AE0084744E /* PhotoDetailInteractor.swift in Sources */,
 				AFEC52F4226A28F400B1BEBA /* AlamofireUtil.swift in Sources */,
+				AF62AF00226A42E20084744E /* RoverPhotosPresenter.swift in Sources */,
 				AFEC52E8226A1A3F00B1BEBA /* RoverStatus.swift in Sources */,
 				AFEC52E2226A183D00B1BEBA /* Photo.swift in Sources */,
+				AF62AF02226A42EE0084744E /* RoverPhotosModels.swift in Sources */,
+				AF62AEF1226A41E20084744E /* PhotoDetailModels.swift in Sources */,
+				AF62AEEF226A41CE0084744E /* PhotoDetailPresenter.swift in Sources */,
+				AF62AF06226A43030084744E /* RoverPhotosRouter.swift in Sources */,
 				AFEC52ED226A1F0600B1BEBA /* DateUtil.swift in Sources */,
 				AFEC52F0226A227600B1BEBA /* ConnectionUtil.swift in Sources */,
+				AF62AEFB226A42C40084744E /* RoverPhotosViewController.swift in Sources */,
+				AF62AEF5226A42130084744E /* PhotoDetailRouter.swift in Sources */,
+				AF62AEFD226A42CF0084744E /* RoverPhotosInteractor.swift in Sources */,
 				AFB6F14F226A128400312A51 /* ViewController.swift in Sources */,
 				AFB6F14D226A128400312A51 /* AppDelegate.swift in Sources */,
+				AF62AF04226A42F90084744E /* RoverPhotosWorker.swift in Sources */,
+				AF62AEF3226A42030084744E /* PhotoDetailWorker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

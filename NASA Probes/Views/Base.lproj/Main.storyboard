@@ -13,7 +13,7 @@
         <!--Mars Rovers Photos-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="NASA_Probes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RoverPhotosViewController" customModule="NASA_Probes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -72,6 +72,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Mars Rovers Photos" id="L1L-P8-M34"/>
                     <connections>
+                        <outlet property="collectionViewPhotos" destination="Azl-f0-5Tt" id="KFQ-r3-Thq"/>
+                        <outlet property="segmentedControlRover" destination="Pf9-zN-eKz" id="9oQ-us-83f"/>
                         <segue destination="bk9-4d-ubY" kind="show" id="xe2-CJ-YSI"/>
                     </connections>
                 </viewController>
@@ -97,10 +99,10 @@
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="-560.49107142857144"/>
         </scene>
-        <!--View Controller-->
+        <!--Photo Detail View Controller-->
         <scene sceneID="Yev-rr-CWb">
             <objects>
-                <viewController id="bk9-4d-ubY" sceneMemberID="viewController">
+                <viewController id="bk9-4d-ubY" customClass="PhotoDetailViewController" customModule="NASA_Probes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DhU-aR-GkC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -127,6 +129,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jgK-Vx-epx"/>
                     </view>
+                    <connections>
+                        <outlet property="imageViewPhoto" destination="AG7-Z0-VhJ" id="j8j-vH-sPm"/>
+                        <outlet property="labelCameraName" destination="gmw-tW-EWj" id="WN0-x0-Xuu"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3Z-Ps-2B9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
