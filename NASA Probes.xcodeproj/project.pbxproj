@@ -15,6 +15,12 @@
 		AFB6F154226A128500312A51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFB6F153226A128500312A51 /* Assets.xcassets */; };
 		AFB6F157226A128500312A51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AFB6F155226A128500312A51 /* LaunchScreen.storyboard */; };
 		AFB6F162226A128500312A51 /* NASA_ProbesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFB6F161226A128500312A51 /* NASA_ProbesTests.swift */; };
+		AFEC52E2226A183D00B1BEBA /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52E1226A183D00B1BEBA /* Photo.swift */; };
+		AFEC52E4226A18B500B1BEBA /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52E3226A18B500B1BEBA /* Camera.swift */; };
+		AFEC52E6226A19BC00B1BEBA /* Rover.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52E5226A19BC00B1BEBA /* Rover.swift */; };
+		AFEC52E8226A1A3F00B1BEBA /* RoverStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52E7226A1A3F00B1BEBA /* RoverStatus.swift */; };
+		AFEC52EB226A1DD900B1BEBA /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52EA226A1DD900B1BEBA /* StringUtil.swift */; };
+		AFEC52ED226A1F0600B1BEBA /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52EC226A1F0600B1BEBA /* DateUtil.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +49,12 @@
 		AFB6F15D226A128500312A51 /* NASA ProbesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "NASA ProbesTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFB6F161226A128500312A51 /* NASA_ProbesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NASA_ProbesTests.swift; sourceTree = "<group>"; };
 		AFB6F163226A128500312A51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AFEC52E1226A183D00B1BEBA /* Photo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		AFEC52E3226A18B500B1BEBA /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		AFEC52E5226A19BC00B1BEBA /* Rover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rover.swift; sourceTree = "<group>"; };
+		AFEC52E7226A1A3F00B1BEBA /* RoverStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverStatus.swift; sourceTree = "<group>"; };
+		AFEC52EA226A1DD900B1BEBA /* StringUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
+		AFEC52EC226A1F0600B1BEBA /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		DDB19E51F24C13798A818CBA /* Pods_NASA_Probes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NASA_Probes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -98,6 +110,8 @@
 		AFB6F14B226A128400312A51 /* NASA Probes */ = {
 			isa = PBXGroup;
 			children = (
+				AFEC52E9226A1D9D00B1BEBA /* Util */,
+				AFEC52E0226A17A600B1BEBA /* Models */,
 				AFB6F14C226A128400312A51 /* AppDelegate.swift */,
 				AFB6F14E226A128400312A51 /* ViewController.swift */,
 				AFB6F150226A128400312A51 /* Main.storyboard */,
@@ -115,6 +129,26 @@
 				AFB6F163226A128500312A51 /* Info.plist */,
 			);
 			path = "NASA ProbesTests";
+			sourceTree = "<group>";
+		};
+		AFEC52E0226A17A600B1BEBA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AFEC52E3226A18B500B1BEBA /* Camera.swift */,
+				AFEC52E1226A183D00B1BEBA /* Photo.swift */,
+				AFEC52E5226A19BC00B1BEBA /* Rover.swift */,
+				AFEC52E7226A1A3F00B1BEBA /* RoverStatus.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		AFEC52E9226A1D9D00B1BEBA /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				AFEC52EC226A1F0600B1BEBA /* DateUtil.swift */,
+				AFEC52EA226A1DD900B1BEBA /* StringUtil.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		E207A91DE01AB7C8B65B3A3B /* Pods */ = {
@@ -289,6 +323,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFEC52E6226A19BC00B1BEBA /* Rover.swift in Sources */,
+				AFEC52E4226A18B500B1BEBA /* Camera.swift in Sources */,
+				AFEC52EB226A1DD900B1BEBA /* StringUtil.swift in Sources */,
+				AFEC52E8226A1A3F00B1BEBA /* RoverStatus.swift in Sources */,
+				AFEC52E2226A183D00B1BEBA /* Photo.swift in Sources */,
+				AFEC52ED226A1F0600B1BEBA /* DateUtil.swift in Sources */,
 				AFB6F14F226A128400312A51 /* ViewController.swift in Sources */,
 				AFB6F14D226A128400312A51 /* AppDelegate.swift in Sources */,
 			);
@@ -456,7 +496,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75Q35KU859;
 				INFOPLIST_FILE = "NASA Probes/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.mdt.NASA-Probes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -472,7 +515,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75Q35KU859;
 				INFOPLIST_FILE = "NASA Probes/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.mdt.NASA-Probes";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -489,7 +535,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75Q35KU859;
 				INFOPLIST_FILE = "NASA ProbesTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.mdt.NASA-ProbesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -507,7 +557,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75Q35KU859;
 				INFOPLIST_FILE = "NASA ProbesTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "br.com.mdt.NASA-ProbesTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
