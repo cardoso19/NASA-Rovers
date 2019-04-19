@@ -21,6 +21,10 @@
 		AFEC52E8226A1A3F00B1BEBA /* RoverStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52E7226A1A3F00B1BEBA /* RoverStatus.swift */; };
 		AFEC52EB226A1DD900B1BEBA /* StringUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52EA226A1DD900B1BEBA /* StringUtil.swift */; };
 		AFEC52ED226A1F0600B1BEBA /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52EC226A1F0600B1BEBA /* DateUtil.swift */; };
+		AFEC52F0226A227600B1BEBA /* ConnectionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52EF226A227600B1BEBA /* ConnectionUtil.swift */; };
+		AFEC52F2226A246E00B1BEBA /* ErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52F1226A246E00B1BEBA /* ErrorString.swift */; };
+		AFEC52F4226A28F400B1BEBA /* AlamofireUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52F3226A28F400B1BEBA /* AlamofireUtil.swift */; };
+		AFEC52F6226A2ADB00B1BEBA /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52F5226A2ADB00B1BEBA /* Photos.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		AFEC52E7226A1A3F00B1BEBA /* RoverStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoverStatus.swift; sourceTree = "<group>"; };
 		AFEC52EA226A1DD900B1BEBA /* StringUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtil.swift; sourceTree = "<group>"; };
 		AFEC52EC226A1F0600B1BEBA /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
+		AFEC52EF226A227600B1BEBA /* ConnectionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionUtil.swift; sourceTree = "<group>"; };
+		AFEC52F1226A246E00B1BEBA /* ErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorString.swift; sourceTree = "<group>"; };
+		AFEC52F3226A28F400B1BEBA /* AlamofireUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireUtil.swift; sourceTree = "<group>"; };
+		AFEC52F5226A2ADB00B1BEBA /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		DDB19E51F24C13798A818CBA /* Pods_NASA_Probes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NASA_Probes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -110,6 +118,7 @@
 		AFB6F14B226A128400312A51 /* NASA Probes */ = {
 			isa = PBXGroup;
 			children = (
+				AFEC52EE226A223400B1BEBA /* Services */,
 				AFEC52E9226A1D9D00B1BEBA /* Util */,
 				AFEC52E0226A17A600B1BEBA /* Models */,
 				AFB6F14C226A128400312A51 /* AppDelegate.swift */,
@@ -135,7 +144,9 @@
 			isa = PBXGroup;
 			children = (
 				AFEC52E3226A18B500B1BEBA /* Camera.swift */,
+				AFEC52F1226A246E00B1BEBA /* ErrorString.swift */,
 				AFEC52E1226A183D00B1BEBA /* Photo.swift */,
+				AFEC52F5226A2ADB00B1BEBA /* Photos.swift */,
 				AFEC52E5226A19BC00B1BEBA /* Rover.swift */,
 				AFEC52E7226A1A3F00B1BEBA /* RoverStatus.swift */,
 			);
@@ -145,10 +156,19 @@
 		AFEC52E9226A1D9D00B1BEBA /* Util */ = {
 			isa = PBXGroup;
 			children = (
+				AFEC52F3226A28F400B1BEBA /* AlamofireUtil.swift */,
+				AFEC52EF226A227600B1BEBA /* ConnectionUtil.swift */,
 				AFEC52EC226A1F0600B1BEBA /* DateUtil.swift */,
 				AFEC52EA226A1DD900B1BEBA /* StringUtil.swift */,
 			);
 			path = Util;
+			sourceTree = "<group>";
+		};
+		AFEC52EE226A223400B1BEBA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		E207A91DE01AB7C8B65B3A3B /* Pods */ = {
@@ -323,12 +343,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AFEC52F6226A2ADB00B1BEBA /* Photos.swift in Sources */,
 				AFEC52E6226A19BC00B1BEBA /* Rover.swift in Sources */,
+				AFEC52F2226A246E00B1BEBA /* ErrorString.swift in Sources */,
 				AFEC52E4226A18B500B1BEBA /* Camera.swift in Sources */,
 				AFEC52EB226A1DD900B1BEBA /* StringUtil.swift in Sources */,
+				AFEC52F4226A28F400B1BEBA /* AlamofireUtil.swift in Sources */,
 				AFEC52E8226A1A3F00B1BEBA /* RoverStatus.swift in Sources */,
 				AFEC52E2226A183D00B1BEBA /* Photo.swift in Sources */,
 				AFEC52ED226A1F0600B1BEBA /* DateUtil.swift in Sources */,
+				AFEC52F0226A227600B1BEBA /* ConnectionUtil.swift in Sources */,
 				AFB6F14F226A128400312A51 /* ViewController.swift in Sources */,
 				AFB6F14D226A128400312A51 /* AppDelegate.swift in Sources */,
 			);

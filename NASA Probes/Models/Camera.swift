@@ -12,7 +12,7 @@ struct Camera: Codable {
     let id: Int?
     let name: String
     let roverId: Int?
-    let fullName: Int
+    let fullName: String
     
     enum CodingKeys: String, CodingKey {
         case id

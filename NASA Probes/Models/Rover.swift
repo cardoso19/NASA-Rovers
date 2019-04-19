@@ -14,7 +14,7 @@ class Rover: Codable {
     let landingDate: Date?
     let launchDate: Date?
     let status: RoverStatus
-    let maxSol: String
+    let maxSol: Int
     let maxDate: Date?
     let totalPhotos: Int
     let cameras: [Camera]
@@ -38,7 +38,7 @@ class Rover: Codable {
         landingDate = try values.decode(String.self, forKey: .landingDate).convertToDate(ofFormat: "yyyy-MM-dd")
         launchDate = try values.decode(String.self, forKey: .launchDate).convertToDate(ofFormat: "yyyy-MM-dd")
         status = try values.decode(RoverStatus.self, forKey: .status)
-        maxSol = try values.decode(String.self, forKey: .maxSol)
+        maxSol = try values.decode(Int.self, forKey: .maxSol)
         maxDate = try values.decode(String.self, forKey: .maxDate).convertToDate(ofFormat: "yyyy-MM-dd")
         totalPhotos = try values.decode(Int.self, forKey: .totalPhotos)
         cameras = try values.decode([Camera].self, forKey: .cameras)

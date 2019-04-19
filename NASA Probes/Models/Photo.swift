@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Photos: Codable {
+class Photo: Codable {
     let id: Int
     let sol: Int
     let camera: Camera
