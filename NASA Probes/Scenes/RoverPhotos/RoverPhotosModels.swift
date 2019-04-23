@@ -13,14 +13,23 @@
 import UIKit
 
 enum RoverPhotos {
-  // MARK: Use cases
-  
-    enum Something {
+    enum Data {
         struct Request {
+            var roverName: String
+            var date: Date
+        }
+    }
+    enum Image {
+        struct Request {
+            var url: String
         }
         struct Response {
+            var image: UIImage
+            var indexPath: IndexPath
         }
         struct ViewModel {
+            var image: UIImage
+            var indexPath: IndexPath
         }
     }
 }

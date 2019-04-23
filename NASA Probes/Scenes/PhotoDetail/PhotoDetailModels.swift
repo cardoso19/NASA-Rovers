@@ -12,15 +12,32 @@
 
 import UIKit
 
-enum PhotoDetailModels {
-    // MARK: Use cases
-  
-    enum Something {
-        struct Request {
-        }
+enum PhotoDetail {
+    enum ShortName {
         struct Response {
+            var name: String
         }
         struct ViewModel {
+            var name: String
+        }
+    }
+    enum FullName {
+        struct Response {
+            var name: String
+        }
+        struct ViewModel {
+            var name: String
+        }
+    }
+    enum Image {
+        struct Request {
+            var url: String
+        }
+        struct Response {
+            var image: UIImage
+        }
+        struct ViewModel {
+            var image: UIImage
         }
     }
 }

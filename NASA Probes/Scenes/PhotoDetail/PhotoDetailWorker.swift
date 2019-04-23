@@ -11,8 +11,12 @@
 //
 
 import UIKit
+import Alamofire
 
 class PhotoDetailWorker {
-  func doSomeWork() {
-  }
+    func downloadPhoto(on url: String, completion: @escaping (_ result: Result<UIImage>) -> Void) {
+        ConnectionUtil.downloadImage(on: url) { (result: Result<UIImage>) in
+            completion(result)
+        }
+    }
 }

@@ -13,10 +13,13 @@
 import UIKit
 
 protocol PhotoDetailDisplayLogic: class {
-    func displaySomething(viewModel: PhotoDetail.Something.ViewModel)
+    func displayShortCameraName(viewModel: PhotoDetail.ShortName.ViewModel)
+    func displayFullCameraName(viewModel: PhotoDetail.FullName.ViewModel)
+    func displayImage(viewModel: PhotoDetail.Image.ViewModel)
+    func display(error: Error)
 }
 
-class PhotoDetailViewController: UIViewController, PhotoDetailDisplayLogic {
+class PhotoDetailViewController: UIViewController {
     var interactor: PhotoDetailBusinessLogic?
     var router: (NSObjectProtocol & PhotoDetailRoutingLogic & PhotoDetailDataPassing)?
 
@@ -60,20 +63,43 @@ class PhotoDetailViewController: UIViewController, PhotoDetailDisplayLogic {
     // MARK: View lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        showImageData()
     }
 
-    // MARK: Do something
-
-    @IBOutlet weak var labelCameraName: UILabel!
+    //MARK: - IBOutlet
+    @IBOutlet weak var buttonCameraName: UIButton!
     @IBOutlet weak var imageViewPhoto: UIImageView!
 
-    func doSomething() {
-        let request = PhotoDetail.Something.Request()
-        interactor?.doSomething(request: request)
+    //MARK: - IBAction
+    @IBAction func actionChangeCameraName(_ sender: Any) {
+        interactor?.showFullCameraName()
     }
+    
+    //MARK: - Function
+    func showImageData() {
+        interactor?.showShortCameraName()
+        interactor?.downloadImage()
+    }
+}
 
-    func displaySomething(viewModel: PhotoDetail.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+//MARK: - PhotoDetailDisplayLogic
+extension PhotoDetailViewController: PhotoDetailDisplayLogic {
+    func displayShortCameraName(viewModel: PhotoDetail.ShortName.ViewModel) {
+        buttonCameraName.setTitle(viewModel.name, for: .normal)
+    }
+    
+    func displayFullCameraName(viewModel: PhotoDetail.FullName.ViewModel) {
+        buttonCameraName.setTitle(viewModel.name, for: .normal)
+    }
+    
+    func displayImage(viewModel: PhotoDetail.Image.ViewModel) {
+        imageViewPhoto.image = viewModel.image
+    }
+    
+    func display(error: Error) {
+        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(actionOk)
+        present(alertController, animated: true, completion: nil)
     }
 }

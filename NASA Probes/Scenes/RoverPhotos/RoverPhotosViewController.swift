@@ -13,15 +13,17 @@
 import UIKit
 
 protocol RoverPhotosDisplayLogic: class {
-    func displaySomething(viewModel: RoverPhotos.Something.ViewModel)
+    func refreshCollectionView()
+    func displayPhoto(viewModel: RoverPhotos.Image.ViewModel)
+    func display(error: Error)
 }
 
-class RoverPhotosViewController: UIViewController, RoverPhotosDisplayLogic {
-    var interactor: RoverPhotosBusinessLogic?
+class RoverPhotosViewController: UIViewController {
+    var interactor: (RoverPhotosBusinessLogic & RoverPhotosDataStore)?
     var router: (NSObjectProtocol & RoverPhotosRoutingLogic & RoverPhotosDataPassing)?
+    var previousSelectedRover: Int = 0
 
-    // MARK: Object lifecycle
-  
+    //MARK: - Object lifecycle
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         setup()
@@ -32,8 +34,7 @@ class RoverPhotosViewController: UIViewController, RoverPhotosDisplayLogic {
         setup()
     }
 
-    // MARK: Setup
-
+    // MARK: - Setup
     private func setup() {
         let viewController = self
         let interactor = RoverPhotosInteractor()
@@ -47,8 +48,7 @@ class RoverPhotosViewController: UIViewController, RoverPhotosDisplayLogic {
         router.dataStore = interactor
     }
 
-    // MARK: Routing
-
+    // MARK: - Routing
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let scene = segue.identifier {
             let selector = NSSelectorFromString("routeTo\(scene)WithSegue:")
@@ -59,23 +59,60 @@ class RoverPhotosViewController: UIViewController, RoverPhotosDisplayLogic {
     }
 
     // MARK: View lifecycle
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        doSomething()
+        requestForRoverPhotos()
     }
 
-    // MARK: Do something
-
+    //MARK: - IBOutlets
     @IBOutlet weak var segmentedControlRover: UISegmentedControl!
     @IBOutlet weak var collectionViewPhotos: UICollectionView!
 
-    func doSomething() {
-        let request = RoverPhotos.Something.Request()
-        interactor?.doSomething(request: request)
+    //MARK: - IBActions
+    @IBAction func actionChangeSelectedRover(_ sender: Any) {
+        if previousSelectedRover != segmentedControlRover.selectedSegmentIndex {
+            requestForRoverPhotos()
+        }
     }
+    
+    //MARK: - Request
+    func requestForRoverPhotos() {
+        guard let roverId = RoverId(rawValue: segmentedControlRover.selectedSegmentIndex) else { return }
+        previousSelectedRover = segmentedControlRover.selectedSegmentIndex
+        let request = RoverPhotos.Data.Request(roverName: roverId.name, date: Date())
+        interactor?.doRequestPhotos(request: request)
+    }
+}
 
-    func displaySomething(viewModel: RoverPhotos.Something.ViewModel) {
-        //nameTextField.text = viewModel.name
+//MARK: - RoverPhotosDisplayLogic
+extension RoverPhotosViewController: RoverPhotosDisplayLogic {
+    func displayPhoto(viewModel: RoverPhotos.Image.ViewModel) {
+        guard let cell = collectionViewPhotos.cellForItem(at: viewModel.indexPath) as? PhotoCollectionViewCell else { return }
+        cell.imageViewPhoto.image = viewModel.image
+    }
+    
+    func refreshCollectionView() {
+        collectionViewPhotos.reloadData()
+    }
+    
+    func display(error: Error) {
+        let alertController = UIAlertController(title: "Error", message: error.localizedDescription, preferredStyle: .alert)
+        let actionOk = UIAlertAction(title: "Ok", style: .default, handler: nil)
+        alertController.addAction(actionOk)
+        present(alertController, animated: true, completion: nil)
+    }
+}
+
+//MARK: - UICollectionViewDataSource
+extension RoverPhotosViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return interactor?.photos?.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "photo", for: indexPath) as? PhotoCollectionViewCell else { fatalError("Error trying to create a photo cell") }
+        guard let data = interactor?.photos?[indexPath.row] else { fatalError("Error trying get data to populate cell") }
+        interactor?.downloadPhoto(on: data.imgSrc, to: indexPath)
+        return cell
     }
 }

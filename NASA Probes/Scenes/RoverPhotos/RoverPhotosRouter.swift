@@ -13,7 +13,7 @@
 import UIKit
 
 @objc protocol RoverPhotosRoutingLogic {
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
+    func routeToPhotoDetail(segue: UIStoryboardSegue?)
 }
 
 protocol RoverPhotosDataPassing {
@@ -24,34 +24,17 @@ class RoverPhotosRouter: NSObject, RoverPhotosRoutingLogic, RoverPhotosDataPassi
     weak var viewController: RoverPhotosViewController?
     var dataStore: RoverPhotosDataStore?
 
-    // MARK: Routing
+    //MARK: - Routing
+    func routeToPhotoDetail(segue: UIStoryboardSegue?) {
+        guard let segue = segue else { return }
+        let destinationVC = segue.destination as! PhotoDetailViewController
+        var destinationDS = destinationVC.router!.dataStore!
+        passDataToDetail(source: dataStore!, destination: &destinationDS)
+    }
 
-    //func routeToSomewhere(segue: UIStoryboardSegue?)
-    //{
-    //  if let segue = segue {
-    //    let destinationVC = segue.destination as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //  } else {
-    //    let storyboard = UIStoryboard(name: "Main", bundle: nil)
-    //    let destinationVC = storyboard.instantiateViewController(withIdentifier: "SomewhereViewController") as! SomewhereViewController
-    //    var destinationDS = destinationVC.router!.dataStore!
-    //    passDataToSomewhere(source: dataStore!, destination: &destinationDS)
-    //    navigateToSomewhere(source: viewController!, destination: destinationVC)
-    //  }
-    //}
-
-    // MARK: Navigation
-
-    //func navigateToSomewhere(source: RoverPhotosViewController, destination: SomewhereViewController)
-    //{
-    //  source.show(destination, sender: nil)
-    //}
-
-    // MARK: Passing data
-
-    //func passDataToSomewhere(source: RoverPhotosDataStore, destination: inout SomewhereDataStore)
-    //{
-    //  destination.name = source.name
-    //}
+    //MARK: - Passing data
+    func passDataToDetail(source: RoverPhotosDataStore, destination: inout PhotoDetailDataStore) {
+        let selectedIndex = viewController?.collectionViewPhotos.indexPathsForSelectedItems?.first?.row ?? 0
+        destination.photo = source.photos?[selectedIndex]
+    }
 }

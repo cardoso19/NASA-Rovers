@@ -13,16 +13,31 @@
 import UIKit
 
 protocol PhotoDetailPresentationLogic {
-    func presentSomething(response: PhotoDetail.Something.Response)
+    func showShortCameraName(response: PhotoDetail.ShortName.Response)
+    func showFullCameraName(response: PhotoDetail.FullName.Response)
+    func showImage(response: PhotoDetail.Image.Response)
+    func presentError(error: Error)
 }
 
 class PhotoDetailPresenter: PhotoDetailPresentationLogic {
     weak var viewController: PhotoDetailDisplayLogic?
-  
-    // MARK: Do something
-  
-    func presentSomething(response: PhotoDetail.Something.Response) {
-        let viewModel = PhotoDetail.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    
+    func showShortCameraName(response: PhotoDetail.ShortName.Response) {
+        let viewModel = PhotoDetail.ShortName.ViewModel(name: response.name)
+        viewController?.displayShortCameraName(viewModel: viewModel)
+    }
+    
+    func showFullCameraName(response: PhotoDetail.FullName.Response) {
+        let viewModel = PhotoDetail.FullName.ViewModel(name: response.name)
+        viewController?.displayFullCameraName(viewModel: viewModel)
+    }
+    
+    func showImage(response: PhotoDetail.Image.Response) {
+        let viewModel = PhotoDetail.Image.ViewModel(image: response.image)
+        viewController?.displayImage(viewModel: viewModel)
+    }
+    
+    func presentError(error: Error) {
+        viewController?.display(error: error)
     }
 }

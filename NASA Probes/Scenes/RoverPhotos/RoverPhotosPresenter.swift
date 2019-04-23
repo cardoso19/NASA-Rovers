@@ -13,16 +13,24 @@
 import UIKit
 
 protocol RoverPhotosPresentationLogic {
-    func presentSomething(response: RoverPhotos.Something.Response)
+    func presentPhotos()
+    func show(response: RoverPhotos.Image.Response)
+    func presentError(error: Error)
 }
 
 class RoverPhotosPresenter: RoverPhotosPresentationLogic {
     weak var viewController: RoverPhotosDisplayLogic?
 
-    // MARK: Do something
-
-    func presentSomething(response: RoverPhotos.Something.Response) {
-        let viewModel = RoverPhotos.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentPhotos() {
+        viewController?.refreshCollectionView()
+    }
+    
+    func show(response: RoverPhotos.Image.Response) {
+        let viewModel = RoverPhotos.Image.ViewModel(image: response.image, indexPath: response.indexPath)
+        viewController?.displayPhoto(viewModel: viewModel)
+    }
+    
+    func presentError(error: Error) {
+        viewController?.display(error: error)
     }
 }

@@ -22,9 +22,12 @@
                                 <rect key="frame" x="20" y="98" width="374" height="29"/>
                                 <segments>
                                     <segment title="Curiosity"/>
-                                    <segment title="Oportunity"/>
+                                    <segment title="Opportunity"/>
                                     <segment title="Spirit"/>
                                 </segments>
+                                <connections>
+                                    <action selector="actionChangeSelectedRover:" destination="BYZ-38-t0r" eventType="valueChanged" id="oV4-mU-jSd"/>
+                                </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Azl-f0-5Tt">
                                 <rect key="frame" x="5" y="136" width="404" height="760"/>
@@ -36,7 +39,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="tvv-JQ-KVt">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photo" id="tvv-JQ-KVt" customClass="PhotoCollectionViewCell" customModule="NASA_Probes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="169" height="159"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -54,8 +57,16 @@
                                             <constraint firstItem="luq-xv-bGX" firstAttribute="top" secondItem="tvv-JQ-KVt" secondAttribute="top" id="WK6-Od-rWS"/>
                                             <constraint firstAttribute="trailing" secondItem="luq-xv-bGX" secondAttribute="trailing" id="v0I-yv-jvt"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="imageViewPhoto" destination="luq-xv-bGX" id="qya-45-12F"/>
+                                            <segue destination="bk9-4d-ubY" kind="show" identifier="PhotoDetail" id="v1X-hA-3aM"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="JGs-rD-Kkg"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QIV-sY-IYL"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -74,7 +85,6 @@
                     <connections>
                         <outlet property="collectionViewPhotos" destination="Azl-f0-5Tt" id="KFQ-r3-Thq"/>
                         <outlet property="segmentedControlRover" destination="Pf9-zN-eKz" id="9oQ-us-83f"/>
-                        <segue destination="bk9-4d-ubY" kind="show" id="xe2-CJ-YSI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -107,31 +117,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gmw-tW-EWj">
-                                <rect key="frame" x="20" y="98" width="374" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AG7-Z0-VhJ">
-                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
+                                <rect key="frame" x="0.0" y="128" width="414" height="768"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pG-Pb-eJV">
+                                <rect key="frame" x="10" y="93" width="394" height="30"/>
+                                <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="actionChangeCameraName:" destination="bk9-4d-ubY" eventType="touchUpInside" id="VFX-vH-xjU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AG7-Z0-VhJ" firstAttribute="leading" secondItem="jgK-Vx-epx" secondAttribute="leading" id="4R0-jf-1dd"/>
-                            <constraint firstItem="gmw-tW-EWj" firstAttribute="leading" secondItem="jgK-Vx-epx" secondAttribute="leading" constant="20" id="ML7-zV-wmD"/>
+                            <constraint firstItem="4pG-Pb-eJV" firstAttribute="centerX" secondItem="DhU-aR-GkC" secondAttribute="centerX" id="KlH-uO-480"/>
+                            <constraint firstItem="4pG-Pb-eJV" firstAttribute="top" secondItem="jgK-Vx-epx" secondAttribute="top" constant="5" id="LeG-b1-4QL"/>
                             <constraint firstAttribute="bottom" secondItem="AG7-Z0-VhJ" secondAttribute="bottom" id="NKC-vc-wer"/>
                             <constraint firstItem="jgK-Vx-epx" firstAttribute="trailing" secondItem="AG7-Z0-VhJ" secondAttribute="trailing" id="XlP-nT-Wum"/>
-                            <constraint firstItem="AG7-Z0-VhJ" firstAttribute="top" secondItem="gmw-tW-EWj" secondAttribute="bottom" constant="20" id="hP6-g4-vW8"/>
-                            <constraint firstItem="gmw-tW-EWj" firstAttribute="centerX" secondItem="DhU-aR-GkC" secondAttribute="centerX" id="skl-q1-Qgr"/>
-                            <constraint firstItem="gmw-tW-EWj" firstAttribute="top" secondItem="jgK-Vx-epx" secondAttribute="top" constant="10" id="wRN-ok-yYO"/>
+                            <constraint firstItem="AG7-Z0-VhJ" firstAttribute="top" secondItem="4pG-Pb-eJV" secondAttribute="bottom" constant="5" id="nDZ-iO-KD1"/>
+                            <constraint firstItem="4pG-Pb-eJV" firstAttribute="leading" secondItem="jgK-Vx-epx" secondAttribute="leading" constant="10" id="tYE-h4-gca"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jgK-Vx-epx"/>
                     </view>
                     <connections>
+                        <outlet property="buttonCameraName" destination="4pG-Pb-eJV" id="sYd-LX-M5i"/>
                         <outlet property="imageViewPhoto" destination="AG7-Z0-VhJ" id="j8j-vH-sPm"/>
-                        <outlet property="labelCameraName" destination="gmw-tW-EWj" id="WN0-x0-Xuu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="f3Z-Ps-2B9" userLabel="First Responder" sceneMemberID="firstResponder"/>

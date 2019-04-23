@@ -33,4 +33,22 @@ class ConnectionUtil {
                 }
         }
     }
+    
+    static func downloadImage(on urlString: String, completion: @escaping (_ result: Result<UIImage>) -> Void) {
+        let finalURL = "https" + urlString.dropFirst(4)
+        if let url = URL(string: finalURL) {
+            let task = URLSession.shared.dataTask(with: URLRequest(url: url)) { (data, response, error) in
+                if let error = error {
+                    completion(.failure(error))
+                } else if let data = data, let image = UIImage(data: data) {
+                    completion(.success(image))
+                } else {
+                    completion(.failure(ErrorString(description: "Problem reading the response data")))
+                }
+            }
+            task.resume()
+        } else {
+            completion(.failure(ErrorString(description: "Invalid URL")))
+        }
+    }
 }

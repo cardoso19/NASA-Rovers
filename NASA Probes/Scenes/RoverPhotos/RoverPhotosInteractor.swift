@@ -13,25 +13,65 @@
 import UIKit
 
 protocol RoverPhotosBusinessLogic {
-    func doSomething(request: RoverPhotos.Something.Request)
+    func doRequestPhotos(request: RoverPhotos.Data.Request)
+    func downloadPhoto(on url: String, to indexPath: IndexPath)
 }
 
 protocol RoverPhotosDataStore {
-    //var name: String { get set }
+    var photos: [Photo]? { get }
 }
 
 class RoverPhotosInteractor: RoverPhotosBusinessLogic, RoverPhotosDataStore {
     var presenter: RoverPhotosPresentationLogic?
-    var worker: RoverPhotosWorker?
-    //var name: String = ""
+    lazy var worker: RoverPhotosWorker = RoverPhotosWorker()
+    var photos: [Photo]?
+    var downloadedImages: [UIImage?]?
 
-    // MARK: Do something
-
-    func doSomething(request: RoverPhotos.Something.Request) {
-        worker = RoverPhotosWorker()
-        worker?.doSomeWork()
-
-        let response = RoverPhotos.Something.Response()
-        presenter?.presentSomething(response: response)
+    func doRequestPhotos(request: RoverPhotos.Data.Request) {
+        let dateString = request.date.convertToString(onFormat: "yyyy-M-d")
+        worker.requestPhotos(roverName: request.roverName,
+                             earthDate: dateString,
+                             completion: { result in
+                                switch result {
+                                case .success(let response):
+                                    if response.photos.count == 0 {
+                                        let newRequest = RoverPhotos.Data.Request(roverName: request.roverName,
+                                                                                    date: request.date.dateByAdding(days: -1))
+                                        self.doRequestPhotos(request: newRequest)
+                                    } else {
+                                        self.photos = response.photos
+                                        self.downloadedImages = [UIImage?](repeating: nil, count: response.photos.count)
+                                        DispatchQueue.main.async() {
+                                            self.presenter?.presentPhotos()
+                                        }
+                                    }
+                                case .failure(let error):
+                                    DispatchQueue.main.async() {
+                                        self.presenter?.presentError(error: error)
+                                    }
+                                }
+        })
+    }
+    
+    func downloadPhoto(on url: String, to indexPath: IndexPath) {
+        if let downloadedImage = downloadedImages?[indexPath.row] {
+            let response = RoverPhotos.Image.Response(image: downloadedImage, indexPath: indexPath)
+            presenter?.show(response: response)
+        } else {
+            worker.downloadPhoto(on: url) { result in
+                switch result {
+                case .success(let image):
+                    self.downloadedImages?[indexPath.row] = image
+                    DispatchQueue.main.async() {
+                        let response = RoverPhotos.Image.Response(image: image, indexPath: indexPath)
+                        self.presenter?.show(response: response)
+                    }
+                case .failure(let error):
+                    DispatchQueue.main.async() {
+                        self.presenter?.presentError(error: error)
+                    }
+                }
+            }
+        }
     }
 }

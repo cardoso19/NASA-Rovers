@@ -13,25 +13,47 @@
 import UIKit
 
 protocol PhotoDetailBusinessLogic {
-    func doSomething(request: PhotoDetail.Something.Request)
+    func showShortCameraName()
+    func showFullCameraName()
+    func downloadImage()
 }
 
 protocol PhotoDetailDataStore {
-    //var name: String { get set }
+    var photo: Photo? { get set }
 }
 
 class PhotoDetailInteractor: PhotoDetailBusinessLogic, PhotoDetailDataStore {
     var presenter: PhotoDetailPresentationLogic?
-    var worker: PhotoDetailWorker?
-    //var name: String = ""
-  
-    // MARK: Do something
-  
-    func doSomething(request: PhotoDetail.Something.Request) {
-        worker = PhotoDetailWorker()
-        worker?.doSomeWork()
+    lazy var worker: PhotoDetailWorker = PhotoDetailWorker()
+
+    var photo: Photo?
     
-        let response = PhotoDetail.Something.Response()
-        presenter?.presentSomething(response: response)
+    func showShortCameraName() {
+        guard let name = photo?.camera.name else { return }
+        let response = PhotoDetail.ShortName.Response(name: name)
+        self.presenter?.showShortCameraName(response: response)
+    }
+    
+    func showFullCameraName() {
+        guard let name = photo?.camera.fullName else { return }
+        let response = PhotoDetail.FullName.Response(name: name)
+        self.presenter?.showFullCameraName(response: response)
+    }
+    
+    func downloadImage() {
+        guard let url = photo?.imgSrc else { return }
+        worker.downloadPhoto(on: url) { result in
+            switch result {
+            case .success(let image):
+                DispatchQueue.main.async() {
+                    let response = PhotoDetail.Image.Response(image: image)
+                    self.presenter?.showImage(response: response)
+                }
+            case .failure(let error):
+                DispatchQueue.main.async() {
+                    self.presenter?.presentError(error: error)
+                }
+            }
+        }
     }
 }
