@@ -11,7 +11,7 @@ To manage the dependencies of the project was used [Cocoa Pods](https://cocoapod
 
 First, it's necessary to clone the project.
 
-`- git clone https://github.com/cardoso19/NASA-Probes.git`
+`- git clone https://github.com/cardoso19/NASA-Rovers.git`
 
 If you don't have Cocoa Pods installed on your computer yet, run the code below on the terminal to install it:
 
