@@ -1,4 +1,4 @@
-# NASA-Probes
+# NASA-Rovers
 ### Description
 This app shows the most recent photos of NASA's rovers(curiosity, opportunity, spirit). It uses the web service https://api.nasa.gov/mars-photos/api/v1 to provide its data and all is done usins the achitecture Clean Swift https://clean-swift.com/.
 
