@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol RoverPhotosDisplayLogic: class {
+protocol RoverPhotosDisplayLogic: AnyObject {
     func refreshCollectionView()
     func displayPhoto(viewModel: RoverPhotos.Image.ViewModel)
     func display(error: Error)

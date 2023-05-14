@@ -14,18 +14,18 @@ import UIKit
 import Alamofire
 
 class RoverPhotosWorker {
-    func requestPhotos(roverName: String, earthDate: String, completion: @escaping (_ result: Result<Photos>) -> Void) {
+    func requestPhotos(roverName: String, earthDate: String, completion: @escaping (_ result: Result<Photos, InternalErrors>) -> Void) {
         let parameters = ["earth_date": earthDate,
                           "api_key": "l0cZ7ls0LbAEFI6h75Upbh1Y7tL9wmucSWQ2QK8P"]
         ConnectionUtil.request(on: "rovers/\(roverName)/photos",
                                method: HTTPMethod.get,
-                               parameters: parameters) { (result: Result<Photos>) in
+                               parameters: parameters) { (result: Result<Photos, InternalErrors>) in
                                 completion(result)
         }
     }
     
-    func downloadPhoto(on url: String, completion: @escaping (_ result: Result<UIImage>) -> Void) {
-        ConnectionUtil.downloadImage(on: url) { (result: Result<UIImage>) in
+    func downloadPhoto(on url: String, completion: @escaping (_ result: Result<UIImage, InternalErrors>) -> Void) {
+        ConnectionUtil.downloadImage(url: url) { (result: Result<UIImage, InternalErrors>) in
             completion(result)
         }
     }

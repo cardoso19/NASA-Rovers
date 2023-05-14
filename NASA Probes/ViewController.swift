@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         ConnectionUtil.request(on: "rovers/curiosity/photos",
                                method: HTTPMethod.get,
                                parameters: ["earth_date": "2015-6-3",
-                                            "api_key": "DEMO_KEY"]) { (result: Result<Photos>) in
+                                            "api_key": "DEMO_KEY"]) { (result: Result<Photos, InternalErrors>) in
                                                 switch result {
                                                 case .success(let value):
                                                     print(value)

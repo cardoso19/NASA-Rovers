@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 53;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -37,7 +37,6 @@
 		AFEC52ED226A1F0600B1BEBA /* DateUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52EC226A1F0600B1BEBA /* DateUtil.swift */; };
 		AFEC52F0226A227600B1BEBA /* ConnectionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52EF226A227600B1BEBA /* ConnectionUtil.swift */; };
 		AFEC52F2226A246E00B1BEBA /* ErrorString.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52F1226A246E00B1BEBA /* ErrorString.swift */; };
-		AFEC52F4226A28F400B1BEBA /* AlamofireUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52F3226A28F400B1BEBA /* AlamofireUtil.swift */; };
 		AFEC52F6226A2ADB00B1BEBA /* Photos.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEC52F5226A2ADB00B1BEBA /* Photos.swift */; };
 /* End PBXBuildFile section */
 
@@ -89,7 +88,6 @@
 		AFEC52EC226A1F0600B1BEBA /* DateUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtil.swift; sourceTree = "<group>"; };
 		AFEC52EF226A227600B1BEBA /* ConnectionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionUtil.swift; sourceTree = "<group>"; };
 		AFEC52F1226A246E00B1BEBA /* ErrorString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorString.swift; sourceTree = "<group>"; };
-		AFEC52F3226A28F400B1BEBA /* AlamofireUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireUtil.swift; sourceTree = "<group>"; };
 		AFEC52F5226A2ADB00B1BEBA /* Photos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photos.swift; sourceTree = "<group>"; };
 		DDB19E51F24C13798A818CBA /* Pods_NASA_Probes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NASA_Probes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -187,8 +185,7 @@
 				AFB6F153226A128500312A51 /* Assets.xcassets */,
 				AFEC52E0226A17A600B1BEBA /* Models */,
 				AF62AEE5226A33D80084744E /* Scenes */,
-				AFEC52EE226A223400B1BEBA /* Services */,
-				AFEC52E9226A1D9D00B1BEBA /* Util */,
+				AFEC52E9226A1D9D00B1BEBA /* Utils */,
 				AFEC52F7226A2EE800B1BEBA /* Views */,
 			);
 			path = "NASA Probes";
@@ -225,22 +222,14 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
-		AFEC52E9226A1D9D00B1BEBA /* Util */ = {
+		AFEC52E9226A1D9D00B1BEBA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				AFEC52F3226A28F400B1BEBA /* AlamofireUtil.swift */,
 				AFEC52EF226A227600B1BEBA /* ConnectionUtil.swift */,
 				AFEC52EC226A1F0600B1BEBA /* DateUtil.swift */,
 				AFEC52EA226A1DD900B1BEBA /* StringUtil.swift */,
 			);
-			path = Util;
-			sourceTree = "<group>";
-		};
-		AFEC52EE226A223400B1BEBA /* Services */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Services;
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		AFEC52F7226A2EE800B1BEBA /* Views */ = {
@@ -311,8 +300,9 @@
 		AFB6F141226A128400312A51 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1020;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1430;
 				ORGANIZATIONNAME = MDT;
 				TargetAttributes = {
 					AFB6F148226A128400312A51 = {
@@ -369,17 +359,16 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-NASA Probes/Pods-NASA Probes-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NASA Probes/Pods-NASA Probes-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-NASA Probes/Pods-NASA Probes-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-NASA Probes/Pods-NASA Probes-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-NASA Probes/Pods-NASA Probes-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		77EF45FA259115D9972417D6 /* [CP] Check Pods Manifest.lock */ = {
@@ -433,7 +422,6 @@
 				AFEC52E4226A18B500B1BEBA /* Camera.swift in Sources */,
 				AFEC52EB226A1DD900B1BEBA /* StringUtil.swift in Sources */,
 				AF62AEED226A41AE0084744E /* PhotoDetailInteractor.swift in Sources */,
-				AFEC52F4226A28F400B1BEBA /* AlamofireUtil.swift in Sources */,
 				AF62AF00226A42E20084744E /* RoverPhotosPresenter.swift in Sources */,
 				AFEC52E8226A1A3F00B1BEBA /* RoverStatus.swift in Sources */,
 				AFEC52E2226A183D00B1BEBA /* Photo.swift in Sources */,
@@ -518,6 +506,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -579,6 +568,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -616,7 +606,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75Q35KU859;
 				INFOPLIST_FILE = "NASA Probes/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -636,7 +626,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75Q35KU859;
 				INFOPLIST_FILE = "NASA Probes/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
