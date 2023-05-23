@@ -9,21 +9,11 @@
 import UIKit
 import Alamofire
 
+// Remove this class
 class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ConnectionUtil.request(on: "rovers/curiosity/photos",
-                               method: HTTPMethod.get,
-                               parameters: ["earth_date": "2015-6-3",
-                                            "api_key": "DEMO_KEY"]) { (result: Result<Photos, InternalErrors>) in
-                                                switch result {
-                                                case .success(let value):
-                                                    print(value)
-                                                case .failure(let error):
-                                                    print(error)
-                                                }
-        }
     }
 }
 

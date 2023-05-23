@@ -11,4 +11,5 @@ import Foundation
 enum RoverStatus: String, Codable {
     case active = "active"
     case deactive = "deactive"
+    case complete = "complete"
 }
