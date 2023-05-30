@@ -20,7 +20,7 @@ enum RoverPhotosViewStatus {
 protocol RoverPhotosViewModeling {
     var viewState: AnyPublisher<RoverPhotosViewStatus, Never> { get }
     func fetchPhotos(selectedIndex: Int)
-    func downloadImage(at indexPath: IndexPath, completion: @escaping (UIImage) -> Void) -> DownloadRequest?
+    func downloadImage(at indexPath: IndexPath, completion: @escaping (UIImage?) -> Void) -> DownloadRequest?
 }
 
 final class RoverPhotosViewModel: RoverPhotosViewModeling {
@@ -53,7 +53,7 @@ final class RoverPhotosViewModel: RoverPhotosViewModeling {
         }
     }
     
-    func downloadImage(at indexPath: IndexPath, completion: @escaping (UIImage) -> Void) -> DownloadRequest? {
+    func downloadImage(at indexPath: IndexPath, completion: @escaping (UIImage?) -> Void) -> DownloadRequest? {
         guard photos.count > indexPath.row else { return nil }
         let photo = photos[indexPath.row]
         return service.downloadPhoto(on: photo.imgSrc) { result in
@@ -61,7 +61,7 @@ final class RoverPhotosViewModel: RoverPhotosViewModeling {
             case let .success(image):
                 completion(image)
             default:
-                break
+                completion(Constants.placeHolderImage)
             }
         }
     }

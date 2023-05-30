@@ -13,4 +13,5 @@ enum InternalErrors: Error {
     case parsingError
     case emptyData
     case requestCreationError
+    case invalidURL
 }

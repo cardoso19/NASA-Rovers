@@ -16,7 +16,7 @@ final class RoverPhotosViewController: UIViewController {
     @IBOutlet weak var collectionViewPhotos: UICollectionView!
     
     // MARK: Private Properties
-    private let viewModel = RoverPhotosViewModel(service: RoverPhotosService())
+    private let viewModel: RoverPhotosViewModeling = RoverPhotosViewModel(service: RoverPhotosService())
     private var cancellables: Set<AnyCancellable> = .init()
     private var photos: [Photo] = []
 
@@ -41,14 +41,14 @@ final class RoverPhotosViewController: UIViewController {
         viewModel.fetchPhotos(selectedIndex: segmentedControlRover.selectedSegmentIndex)
     }
     
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        guard let destinationController = segue.destination as? PhotoDetailViewController else {
-    //            return
-    //        }
-    //        let selectedIndex = collectionViewPhotos.indexPathsForSelectedItems?.first?.row ?? 0
-    //        let photo = photos[selectedIndex]
-    //        destinationController.photo = photo
-    //    }
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            guard let destinationController = segue.destination as? PhotoDetailViewController else {
+                return
+            }
+            let selectedIndex = collectionViewPhotos.indexPathsForSelectedItems?.first?.row ?? 0
+            let photo = photos[selectedIndex]
+            destinationController.photo = photo
+        }
     
     // MARK: Private Methods
     private func setup() {
@@ -74,6 +74,20 @@ final class RoverPhotosViewController: UIViewController {
         let actionOk = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alertController.addAction(actionOk)
         present(alertController, animated: true, completion: nil)
+    }
+}
+
+// MARK: UICollectionViewDelegateFlowLayout
+extension RoverPhotosViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let spacing: CGFloat = 10
+        let numberOfElementsHorizontally: CGFloat = 2
+        let numberOfElementsVertically: CGFloat = 4
+        let spacingWidthLenght: CGFloat = (numberOfElementsHorizontally - 1) * spacing
+        let spacingHeightLenght: CGFloat = (numberOfElementsVertically - 1) * spacing
+        let finalWidth = collectionView.frame.width / numberOfElementsHorizontally - spacingWidthLenght
+        let finalHeight = collectionView.frame.height / numberOfElementsVertically - spacingHeightLenght
+        return CGSize(width: finalWidth, height: finalHeight)
     }
 }
 

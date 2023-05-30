@@ -19,5 +19,6 @@ final class PhotoCollectionViewCell: UICollectionViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         downloadRequest?.cancel()
+        imageViewPhoto.image = Constants.placeHolderImage
     }
 }

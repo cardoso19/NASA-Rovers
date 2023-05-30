@@ -11,6 +11,7 @@ import Alamofire
 
 protocol RoverPhotosServicing {
     func requestPhotos(roverName: String, earthDate: String, completion: @escaping (_ result: Result<Photos, InternalErrors>) -> Void)
+    @discardableResult
     func downloadPhoto(on url: String, completion: @escaping (_ result: Result<UIImage, InternalErrors>) -> Void) -> DownloadRequest?
 }
 
@@ -35,6 +36,7 @@ final class RoverPhotosService: RoverPhotosServicing {
         }
     }
     
+    @discardableResult
     func downloadPhoto(on url: String, completion: @escaping (_ result: Result<UIImage, InternalErrors>) -> Void) -> DownloadRequest? {
         return networkManager.downloadImage(url: url) { (result: Result<UIImage, InternalErrors>) in
             completion(result)
