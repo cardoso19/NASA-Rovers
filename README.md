@@ -5,7 +5,7 @@ The project uses CocoaPods as its dependency manager and currently has only Almo
 All the design is built using Interface Builder and the code is using MVVM and written entirely using Swift.
 
 ## Recording
-![Recording](recording.gif =310x600)
+<img src="recording.gif" width="310" height="600">
 
 ## Platform
 iOS
