@@ -12,7 +12,7 @@
 
 import UIKit
 
-protocol PhotoDetailDisplayLogic: class {
+protocol PhotoDetailDisplayLogic: AnyObject {
     func displayShortCameraName(viewModel: PhotoDetail.ShortName.ViewModel)
     func displayFullCameraName(viewModel: PhotoDetail.FullName.ViewModel)
     func displayImage(viewModel: PhotoDetail.Image.ViewModel)

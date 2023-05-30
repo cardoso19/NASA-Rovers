@@ -22,9 +22,9 @@ protocol PhotoDetailDataStore {
     var photo: Photo? { get set }
 }
 
-class PhotoDetailInteractor: PhotoDetailBusinessLogic, PhotoDetailDataStore {
+final class PhotoDetailInteractor: PhotoDetailBusinessLogic, PhotoDetailDataStore {
     var presenter: PhotoDetailPresentationLogic?
-    lazy var worker: PhotoDetailWorker = PhotoDetailWorker()
+    lazy var worker: PhotoDetailWorker = PhotoDetailWorker(networkManager: NetworkManager())
 
     var photo: Photo?
     

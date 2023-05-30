@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WCS-tG-q1G">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WCS-tG-q1G">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,18 +16,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Pf9-zN-eKz">
-                                <rect key="frame" x="20" y="98" width="374" height="29"/>
+                                <rect key="frame" x="20" y="102" width="374" height="32"/>
                                 <segments>
                                     <segment title="Curiosity"/>
                                     <segment title="Opportunity"/>
                                     <segment title="Spirit"/>
                                 </segments>
                                 <connections>
-                                    <action selector="actionChangeSelectedRover:" destination="BYZ-38-t0r" eventType="valueChanged" id="oV4-mU-jSd"/>
+                                    <action selector="actionChangeSelectedRover" destination="BYZ-38-t0r" eventType="valueChanged" id="4jV-Cg-bxH"/>
                                 </connections>
                             </segmentedControl>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Azl-f0-5Tt">
-                                <rect key="frame" x="5" y="136" width="404" height="760"/>
+                                <rect key="frame" x="5" y="143" width="404" height="753"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cKc-aZ-4oG">
                                     <size key="itemSize" width="169" height="159"/>
@@ -39,7 +36,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="photo" id="tvv-JQ-KVt" customClass="PhotoCollectionViewCell" customModule="NASA_Probes" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="PhotoCollectionViewCell" id="tvv-JQ-KVt" customClass="PhotoCollectionViewCell" customModule="NASA_Probes" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="169" height="159"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -64,11 +61,12 @@
                                     </collectionViewCell>
                                 </cells>
                                 <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="JGs-rD-Kkg"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="QIV-sY-IYL"/>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="h5k-Xk-Y5F"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="C19-7F-4P6"/>
                                 </connections>
                             </collectionView>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Pf9-zN-eKz" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="DeN-rm-W1k"/>
@@ -79,7 +77,6 @@
                             <constraint firstAttribute="bottom" secondItem="Azl-f0-5Tt" secondAttribute="bottom" id="wNK-AY-535"/>
                             <constraint firstItem="Pf9-zN-eKz" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yXW-f0-iWI"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Mars Rovers Photos" id="L1L-P8-M34"/>
                     <connections>
@@ -97,7 +94,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WCS-tG-q1G" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Kvt-oP-g0V">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -118,10 +115,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AG7-Z0-VhJ">
-                                <rect key="frame" x="0.0" y="128" width="414" height="768"/>
+                                <rect key="frame" x="0.0" y="132" width="414" height="764"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pG-Pb-eJV">
-                                <rect key="frame" x="10" y="93" width="394" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4pG-Pb-eJV">
+                                <rect key="frame" x="10" y="97" width="394" height="30"/>
                                 <inset key="titleEdgeInsets" minX="10" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="Button"/>
                                 <connections>
@@ -129,6 +126,7 @@
                                 </connections>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="jgK-Vx-epx"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="AG7-Z0-VhJ" firstAttribute="leading" secondItem="jgK-Vx-epx" secondAttribute="leading" id="4R0-jf-1dd"/>
@@ -139,7 +137,6 @@
                             <constraint firstItem="AG7-Z0-VhJ" firstAttribute="top" secondItem="4pG-Pb-eJV" secondAttribute="bottom" constant="5" id="nDZ-iO-KD1"/>
                             <constraint firstItem="4pG-Pb-eJV" firstAttribute="leading" secondItem="jgK-Vx-epx" secondAttribute="leading" constant="10" id="tYE-h4-gca"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="jgK-Vx-epx"/>
                     </view>
                     <connections>
                         <outlet property="buttonCameraName" destination="4pG-Pb-eJV" id="sYd-LX-M5i"/>

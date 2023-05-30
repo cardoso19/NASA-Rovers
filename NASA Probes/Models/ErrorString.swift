@@ -8,6 +8,9 @@
 
 import Foundation
 
-struct ErrorString: Error {
-    let description: String
+enum InternalErrors: Error {
+    case responseError(Error)
+    case parsingError
+    case emptyData
+    case requestCreationError
 }

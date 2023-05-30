@@ -23,4 +23,12 @@ enum RoverId: Int {
             return "spirit"
         }
     }
+    
+    var lastContact: String {
+        switch self {
+        case .curiosity: return Date().dateByAdding(days: -2).convertToString(onFormat: "yyyy-M-d")
+        case .opportunity: return "2018-6-09"
+        case .spirit: return "2010-3-21"
+        }
+    }
 }
