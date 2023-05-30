@@ -46,15 +46,19 @@ final class NetworkManager: NetworkManaging {
     }
     
     func downloadImage(url urlString: String, completion: @escaping (Result<UIImage, InternalErrors>) -> Void) -> DownloadRequest? {
-        if let cachedImage = fetchImageCache(url: urlString) {
+        guard let finalURLString = try? handleImage(url: urlString) else {
+            completion(.failure(.invalidURL))
+            return nil
+        }
+        if let cachedImage = fetchImageCache(url: finalURLString) {
             completion(.success(cachedImage))
             return nil
         } else {
-            return session.download(urlString).response { [weak self] response in
+            return session.download(finalURLString).response { [weak self] response in
                 guard let self else { return }
                 switch response.result {
                 case let .success(url):
-                    completion(self.handleImageSuccess(url: url, requestURL: urlString))
+                    completion(self.handleImageSuccess(url: url, requestURL: finalURLString))
                 case let .failure(error):
                     completion(.failure(.responseError(error)))
                 }
@@ -84,6 +88,12 @@ final class NetworkManager: NetworkManaging {
             return nil
         }
         return image
+    }
+    
+    private func handleImage(url: String?) throws -> String  {
+        guard let url else { throw InternalErrors.invalidURL }
+        guard url.contains("http:") else { return url }
+        return url.replacingOccurrences(of: "http:", with: "https:")
     }
     
     private func handleImageSuccess(url: URL?, requestURL: String) -> Result<UIImage, InternalErrors> {
